@@ -4,4 +4,14 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>Cars</servlet-name>
+    <servlet-class>classAx.control.Cars</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+	<servlet-name>Cars</servlet-name>
+	<url-pattern>/listcars</url-pattern>
+  </servlet-mapping>
 </web-app>
