@@ -7,3 +7,11 @@ table, th, td {
 table {
     border-collapse: collapse;
 }
+
+th {
+    cursor: pointer;
+}
+
+.searchbox {
+	width: 50px;
+}

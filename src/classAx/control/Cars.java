@@ -16,7 +16,7 @@ import classAx.model.*;
 
 @WebServlet("/Cars")
 public class Cars extends HttpServlet {
-    private static final long serialVersionUID = 1L; 
+    private static final long serialVersionUID = 2L; 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
 	    List<String> specNames = new ArrayList<String>();
