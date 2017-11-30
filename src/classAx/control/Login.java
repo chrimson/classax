@@ -1,8 +1,7 @@
 package classAx.control;
 
 import java.io.*;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;

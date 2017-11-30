@@ -1,12 +1,17 @@
 ClassAx
 chrimson@gmail.com
-A crowdsourced wiki database
+a crowdsourced wiki database
 
-2017-11-30 MySQL Table of serialized objects
+2017-11-30
+MySQL Table of serialized objects
+vary number of columns
+aesthetics
 
-2017-11-29 JSTL include pages
+2017-11-29
+JSTL include pages
 
-2017-11-28 Eclipse Dynamic Web Project
+2017-11-28
+Eclipse Dynamic Web Project
 
 Users
 Username

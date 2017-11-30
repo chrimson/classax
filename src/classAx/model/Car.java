@@ -1,28 +1,22 @@
 package classAx.model;
 
-import java.io.Serializable;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement; 
+import java.io.*;
+import java.util.*;
+
+import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name = "Car")
 public class Car implements Serializable {
     private static final long serialVersionUID = 1L; 
 
-	private int year;
-	private String make;
+	private List<Object> specs;
 	
-	public Car(int year, String make) {
-		this.year = year;
-		this.make = make;
+	public Car(List<Object> specs) {
+		this.specs = specs;
 	}
 	
     @XmlElement
-	public int getYear() {
-		return year;
-	}
-
-    @XmlElement 
-	public String getMake() {
-		return make;
+	public Object getSpecs() {
+		return specs;
 	}
 }
