@@ -8,10 +8,10 @@
 		<title>ClassAx</title>
 	</head>
 	<body>
-		<jsp:include page="login.jsp" /><p />
-		
-		<jsp:include page="/listcars" />
-		<c:out value="${message}"></c:out><p />
-		
+		<jsp:include page="login.jsp" />
+
+		<p />
+
+		<jsp:include page="cars.jsp" />
 	</body>
 </html>
