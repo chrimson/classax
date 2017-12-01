@@ -8,8 +8,12 @@ table {
     border-collapse: collapse;
 }
 
-th {
+td {
     cursor: pointer;
+}
+
+td.header {
+	font-weight: bold;
 }
 
 .searchbox {

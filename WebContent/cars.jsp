@@ -6,21 +6,27 @@
 <table id="cars">
 	<tr>
 		<c:forEach begin="0" end="${fn:length(specNames) - 1}" var="index">
-		<th onclick="sort(${index})"><c:out value="${specNames[index]}"/></th>
+		<td onclick="sort(${index})" class="header">
+			<span><c:out value="${specNames[index]}"/></span>
+		</td>
 		</c:forEach>
 	</tr>
 
 	<c:forEach var="car" items="${cars}">
 	<tr>
 		<c:forEach begin="0" end="${fn:length(car.specs) - 1}" var="index">
-		<td><c:out value="${car.specs[index]}"/></td>
+		<td onclick="hide(${index})">
+			<span><c:out value="${car.specs[index]}"/></span>
+		</td>
 		</c:forEach>
 	</tr>
 	</c:forEach>
 
 	<tr>
 		<c:forEach var="specName" items="${specNames}">
-		<td><input type="text" class="searchbox"></td>
+		<td>
+			<span><input type="text" class="searchbox"></span>
+		</td>
 		</c:forEach>
 	</tr>
 </table>
@@ -35,12 +41,12 @@ function sort(n) {
 
   while (switching) {
     switching = false;
-    rows = table.getElementsByTagName("TR");
+    rows = table.getElementsByTagName("tr");
 
     for (i = 1; i < (rows.length - 2); i++) {
       shouldSwitch = false;
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
 
       if (dir == "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
@@ -66,5 +72,25 @@ function sort(n) {
       }
     }
   }
+}
+
+function hide(n) {
+	var table, rows, i, cell, content;
+	table = document.getElementById("cars");
+
+	rows = table.getElementsByTagName("tr");
+	for (i = 0; i < rows.length; i++) {
+		cell = rows[i].getElementsByTagName("td")[n];
+		content = cell.getElementsByTagName("span")[0]
+		content.style.whiteSpace = "nowrap";
+		
+		if (cell.style.maxWidth == "10px") {
+			content.style.visibility = "visible";
+			cell.style.maxWidth = "200px";
+		} else {
+			content.style.visibility = "collapse";
+			cell.style.maxWidth = "10px";
+		}
+	}
 }
 </script>
