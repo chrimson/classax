@@ -7,6 +7,7 @@ un/collapse table
 input box widths column widths
 search SQL database
 fix login
+must fix Table redundancy, blank welcome table
 
 2017-11-30
 MySQL Table of serialized objects

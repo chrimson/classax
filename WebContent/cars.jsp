@@ -37,7 +37,9 @@
 
 	<div style="text-align:center">
 		<input type="submit" name="op" value="Search"/>
-		<input type="submit" name="op" value="Add"/>
+		<c:if test="${not empty username}">
+			<input type="submit" name="op" value="Add"/>
+		</c:if>
 	</div>
 </form>
 
