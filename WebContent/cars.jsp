@@ -3,7 +3,7 @@
  
 <jsp:include page="/listcars" />
 
-<form action="Table" method="GET">
+<form action="Table" method="POST">
 	<table id="cars">
 		<tr>
 			<c:forEach begin="0" end="${fn:length(specNames) - 1}" var="index">
@@ -32,6 +32,7 @@
 		</tr>
 	</table>
 
+	<input type="hidden" name="username" value="${username}"/>
 	<p />
 
 	<div style="text-align:center">
@@ -39,7 +40,6 @@
 		<input type="submit" name="op" value="Add"/>
 	</div>
 </form>
-
 
 <script type="text/javascript">
 function sort(n) {

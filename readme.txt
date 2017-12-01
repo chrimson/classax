@@ -6,6 +6,7 @@ a crowdsourced wiki database
 un/collapse table
 input box widths column widths
 search SQL database
+fix login
 
 2017-11-30
 MySQL Table of serialized objects

@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 public class Table extends HttpServlet {
 	private static final long serialVersionUID = 4L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 
@@ -25,9 +25,5 @@ public class Table extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
-		doGet(request, response);
 	}
 }

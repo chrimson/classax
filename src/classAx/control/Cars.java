@@ -18,7 +18,7 @@ import classAx.model.*;
 public class Cars extends HttpServlet {
     private static final long serialVersionUID = 2L; 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
 	    List<String> specNames = new ArrayList<String>();
 	    List<Car> cars = new ArrayList<Car>();
 
@@ -80,7 +80,7 @@ public class Cars extends HttpServlet {
 		request.setAttribute("cars", cars);
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
-		doGet(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
+		doPost(request, response);
 	}
 }

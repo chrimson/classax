@@ -8,13 +8,13 @@
 	<form action="Login" method="POST">
 		Username <input type="text" name="username"/><br/>
 		Password <input type="password" name="password"/><br/>
-		<input type="submit" value="Login"/>
+		<input type="submit" name="user" value="Login"/>
 	</form>
 </c:if>
 
 <c:if test="${not empty username}">
-	<form action="Login" method="GET">
+	<form action="Login" method="POST">
 		${username} logged in<br/>
-		<input type="submit" value="Logout"/>
+		<input type="submit" name="user" value="Logout"/>
 	</form>
 </c:if>
