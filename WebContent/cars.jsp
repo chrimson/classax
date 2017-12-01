@@ -16,7 +16,7 @@
 	<tr>
 		<c:forEach begin="0" end="${fn:length(car.specs) - 1}" var="index">
 		<td onclick="hide(${index})">
-			<span><c:out value="${car.specs[index]}"/></span>
+			<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
 		</td>
 		</c:forEach>
 	</tr>
@@ -24,8 +24,8 @@
 
 	<tr>
 		<c:forEach var="specName" items="${specNames}">
-		<td>
-			<span><input type="text" class="searchbox"></span>
+		<td class="search">
+			<span><input type="text" style="width:40px"/></span>
 		</td>
 		</c:forEach>
 	</tr>
@@ -81,8 +81,7 @@ function hide(n) {
 	rows = table.getElementsByTagName("tr");
 	for (i = 0; i < rows.length; i++) {
 		cell = rows[i].getElementsByTagName("td")[n];
-		content = cell.getElementsByTagName("span")[0]
-		content.style.whiteSpace = "nowrap";
+		content = cell.firstElementChild;
 		
 		if (cell.style.maxWidth == "10px") {
 			content.style.visibility = "visible";
@@ -91,6 +90,15 @@ function hide(n) {
 			content.style.visibility = "collapse";
 			cell.style.maxWidth = "10px";
 		}
+	}
+}
+
+function sizer() {
+	var searchboxes, i;
+	searchboxes = document.getElementsByClassName("search");
+	for (i = 0; i < searchboxes.length; i++) {
+		searchboxes[i].firstElementChild.firstElementChild.style.width =
+			searchboxes[i].clientWidth + "px";
 	}
 }
 </script>

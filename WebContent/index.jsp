@@ -8,7 +8,7 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<title>ClassAx</title>
 	</head>
-	<body>
+	<body onload="sizer()">
 		<jsp:include page="login.jsp" />
 
 		<p />

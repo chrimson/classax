@@ -2,6 +2,10 @@ ClassAx
 chrimson@gmail.com
 a crowdsourced wiki database
 
+2017-12-01
+un/collapse table
+input box widths column widths
+
 2017-11-30
 MySQL Table of serialized objects
 vary number of columns
