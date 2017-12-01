@@ -1,10 +1,11 @@
 ClassAx
-chrimson@gmail.com
+Chris Limson
 a crowdsourced wiki database
 
 2017-12-01
 un/collapse table
 input box widths column widths
+search SQL database
 
 2017-11-30
 MySQL Table of serialized objects

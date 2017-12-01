@@ -21,7 +21,7 @@ public class Cars extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
 	    List<String> specNames = new ArrayList<String>();
 	    List<Car> cars = new ArrayList<Car>();
-	    
+
 	    try {
 			Database db = new Database();
 			Statement query = db.sql.createStatement();
@@ -38,12 +38,28 @@ public class Cars extends HttpServlet {
 			e.printStackTrace();
 		}
 	    
+	    String where = "";
+	    for (int i = 0; i < specNames.size(); i++) {
+		    String specName = specNames.get(i);
+		    String spec = request.getParameter(specName);
+		    if (spec != null && !spec.equals("")) {
+		    	if (!where.equals("")) {
+		    		where += " AND ";
+		    	}
+		    	where += specName + "='" + spec + "'";
+		    }
+	    }
+	    if (!where.equals("")) {
+	    	where = "WHERE " + where;
+	    }
+	    
 	    try {
 			Database db = new Database();
 			Statement query = db.sql.createStatement();
 			ResultSet results = query.executeQuery(
 					"SELECT * " +
-					"FROM Cars"
+					"FROM Cars " +
+					where
 			);
 	 
 			while (results.next()) {

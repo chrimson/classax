@@ -13,7 +13,7 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			RequestDispatcher dispatcher;
+			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 
 			Database db = new Database();
 			PreparedStatement query = db.sql.prepareStatement(
@@ -26,12 +26,10 @@ public class Login extends HttpServlet {
 	 
 			ResultSet result = query.executeQuery();
 			if (result.next()) {
-				dispatcher = request.getRequestDispatcher("index.jsp");
 				request.setAttribute("username", result.getString("Username"));
 			}
 			else
 			{
-				dispatcher = request.getRequestDispatcher("index.jsp");
 				request.setAttribute("error", true);
 			}
 			db.close();
