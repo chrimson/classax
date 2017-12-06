@@ -2,6 +2,9 @@ ClassAx
 Chris Limson
 a crowdsourced wiki database
 
+2017-12-06
+modify default first page to show blank
+
 2017-12-01
 un/collapse table
 input box widths column widths
