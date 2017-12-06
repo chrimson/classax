@@ -4,6 +4,7 @@ a crowdsourced wiki database
 
 2017-12-06
 modify default first page to show blank
+add spec match count field
 
 2017-12-01
 un/collapse table

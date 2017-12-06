@@ -20,14 +20,19 @@
 				<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
 			</td>
 			</c:forEach>
+			<td onclick="hide(${fn:length(car.specs)})">
+				<span style="white-space:nowrap"></span>
+			</td>
 		</tr>
 		</c:forEach>
 	
 		<tr>
 			<c:forEach var="specName" items="${specNames}">
-			<td class="search">
-				<span><input name="${specName}" type="text" style="width:40px"/></span>
-			</td>
+			<c:if test="${specName!='Matches'}">
+				<td class="search">
+					<span><input name="${specName}" type="text" style="width:40px"/></span>
+				</td>
+			</c:if>
 			</c:forEach>
 		</tr>
 	</table>

@@ -32,6 +32,8 @@ public class Cars extends HttpServlet {
 			while (results.next()) {
 				specNames.add(results.getString("Field"));
 			}
+			
+			specNames.add("Matches");
 
 			db.close();
 		} catch (Exception e) {
@@ -39,12 +41,12 @@ public class Cars extends HttpServlet {
 		}
 	    
 	    String where = "";
-	    for (int i = 0; i < specNames.size(); i++) {
+	    for (int i = 0; i < specNames.size() - 1; i++) {
 		    String specName = specNames.get(i);
 		    String spec = request.getParameter(specName);
 		    if (spec != null && !spec.equals("")) {
 		    	if (!where.equals("")) {
-		    		where += " AND ";
+		    		where += " OR ";
 		    	}
 		    	where += specName + "='" + spec + "'";
 		    }
@@ -63,7 +65,7 @@ public class Cars extends HttpServlet {
 		 
 				while (results.next()) {
 					List<Object> specs = new ArrayList<Object>();
-					for (int i = 0; i < specNames.size(); i++) {
+					for (int i = 0; i < specNames.size() - 1; i++) {
 						specs.add(i, results.getObject(i + 1));
 					}
 					
