@@ -39,15 +39,23 @@
 
 	<div style="text-align:center">
 		<input type="submit" name="op" value="Search"/>
+		<input type="button" onclick="clearFields()" value="Clear" />
 		<c:if test="${not empty username}">
-			<input type="submit" name="op" value="Add"/>
+			<c:choose>
+				<c:when test="${op == 'Add'}">
+					<input type="submit" name="op" value="Confirm"/>
+				</c:when>
+				<c:otherwise>
+					<input type="submit" name="op" value="Add"/>
+				</c:otherwise>
+			</c:choose>
 		</c:if>
 	</div>
 </form>
 
 <script type="text/javascript">
-var matches = '${fn:length(headers) - 1}';
-sort(matches);
+var specs = '${fn:length(headers) - 1}';
+sort(specs);
 maximizeFields();
 
 function sort(n) {
@@ -115,6 +123,15 @@ function maximizeFields() {
 	for (i = 0; i < search.length; i++) {
 		search[i].firstElementChild.firstElementChild.style.width =
 			search[i].clientWidth + "px";
+	}
+}
+
+function clearFields() {
+	var search, i;
+	search = document.getElementsByClassName("search");
+
+	for (i = 0; i < search.length; i++) {
+		search[i].firstElementChild.firstElementChild.setAttribute("value", "");
 	}
 }
 </script>
