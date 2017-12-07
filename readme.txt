@@ -7,8 +7,10 @@ sort by number of matches
 use previous entry for default values 
 clear input fields of any values
 sort numeric values in order
- 
+add/new to table
+
 TODO:
+add null numeric values
 new/add op searches first
 add rank field, like buttons for each row
 
