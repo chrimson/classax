@@ -4,8 +4,10 @@ a crowdsourced wiki database
 
 2017-12-07
 sort by number of matches
+use previous entry for default values 
 
 TODO:
+sort numeric values in order
 new/add op searches first
 add rank field, like buttons for each row
 

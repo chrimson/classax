@@ -24,12 +24,12 @@
 		</c:forEach>
 	
 		<tr>
-			<c:forEach var="specName" items="${headers}">
-				<c:if test="${specName!='Matches'}">
- 				<td class="search">
- 					<span><input name="${specName}" type="text" style="width:40px"/></span>
- 				</td>
-	 			</c:if>
+			<c:forEach begin="0" end="${fn:length(headers) - 2}" var="specIndex">
+			<td class="search">
+				<span>
+				<input name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}"/>
+				</span>
+			</td>
 			</c:forEach>
 		</tr>
 	</table>

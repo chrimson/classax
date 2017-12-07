@@ -90,6 +90,7 @@ public class Cars extends HttpServlet {
 
 		request.setAttribute("headers", headers);
 		request.setAttribute("cars", cars);
+		request.setAttribute("specReq", specReq);
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
