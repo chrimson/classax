@@ -6,33 +6,30 @@
 <form action="Table" method="POST">
 	<table id="cars">
 		<tr>
-			<c:forEach begin="0" end="${fn:length(specNames) - 1}" var="index">
+			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
 			<td onclick="sort(${index})" class="header">
-				<span><c:out value="${specNames[index]}"/></span>
+				<span><c:out value="${headers[index]}"/></span>
 			</td>
 			</c:forEach>
 		</tr>
 	
 		<c:forEach var="car" items="${cars}">
 		<tr>
-			<c:forEach begin="0" end="${fn:length(car.specs) - 1}" var="index">
-			<td onclick="hide(${index})">
+			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
+			<td onclick="collapsible(${index})">
 				<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
 			</td>
 			</c:forEach>
-			<td onclick="hide(${fn:length(car.specs)})">
-				<span style="white-space:nowrap"></span>
-			</td>
 		</tr>
 		</c:forEach>
 	
 		<tr>
-			<c:forEach var="specName" items="${specNames}">
-			<c:if test="${specName!='Matches'}">
-				<td class="search">
-					<span><input name="${specName}" type="text" style="width:40px"/></span>
-				</td>
-			</c:if>
+			<c:forEach var="specName" items="${headers}">
+				<c:if test="${specName!='Matches'}">
+ 				<td class="search">
+ 					<span><input name="${specName}" type="text" style="width:40px"/></span>
+ 				</td>
+	 			</c:if>
 			</c:forEach>
 		</tr>
 	</table>
@@ -49,8 +46,12 @@
 </form>
 
 <script type="text/javascript">
+var matches = '${fn:length(headers) - 1}';
+sort(matches);
+maximizeFields();
+
 function sort(n) {
-	var table, rows, switching=true, i, x, y, shouldSwitch=false, dir="asc", switchcount=0;
+	var table, rows, switching=true, i, x, y, shouldSwitch=false, dir="desc", switchcount=0;
 	table = document.getElementById("cars");
 	
 	while (switching) {
@@ -80,15 +81,15 @@ function sort(n) {
 			switching = true;
 			switchcount ++;      
 		} else {
-			if (switchcount == 0 && dir == "asc") {
-				dir = "desc";
+			if (switchcount == 0 && dir == "desc") {
+				dir = "asc";
 				switching = true;
 			}
 		}
 	}
 }
 
-function hide(n) {
+function collapsible(n) {
 	var table, rows, i, cell, content;
 	table = document.getElementById("cars");
 	rows = table.getElementsByTagName("tr");
@@ -107,7 +108,7 @@ function hide(n) {
 	}
 }
 
-function sizer() {
+function maximizeFields() {
 	var search, i;
 	search = document.getElementsByClassName("search");
 

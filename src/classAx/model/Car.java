@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.*;
 public class Car implements Serializable {
     private static final long serialVersionUID = 3L; 
 
-	private List<Object> specs;
+	private List<String> specs;
 	
-	public Car(List<Object> specs) {
+	public Car(List<String> specs) {
 		this.specs = specs;
 	}
 	

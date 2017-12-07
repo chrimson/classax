@@ -2,6 +2,13 @@ ClassAx
 Chris Limson
 a crowdsourced wiki database
 
+2017-12-07
+sort by number of matches
+
+TODO:
+new/add op searches first
+add rank field, like buttons for each row
+
 2017-12-06
 modify default first page to show blank
 add spec match count field

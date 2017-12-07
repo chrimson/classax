@@ -19,7 +19,8 @@ public class Cars extends HttpServlet {
     private static final long serialVersionUID = 2L; 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
-	    List<String> specNames = new ArrayList<String>();
+	    List<String> headers = new ArrayList<String>();
+	    List<String> specReq = new ArrayList<String>();
 	    List<Car> cars = new ArrayList<Car>();
 
 	    try {
@@ -30,25 +31,26 @@ public class Cars extends HttpServlet {
 			);
 	 
 			while (results.next()) {
-				specNames.add(results.getString("Field"));
+				headers.add(results.getString("Field"));
 			}
-			
-			specNames.add("Matches");
 
+			headers.add("Matches");
+			
 			db.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	    
+	    
 	    String where = "";
-	    for (int i = 0; i < specNames.size() - 1; i++) {
-		    String specName = specNames.get(i);
-		    String spec = request.getParameter(specName);
-		    if (spec != null && !spec.equals("")) {
+	    for (int i = 0; i < headers.size() - 1; i++) {
+		    String specName = headers.get(i);
+		    specReq.add(request.getParameter(specName));
+		    if (specReq.get(i) != null && !specReq.get(i).equals("")) {
 		    	if (!where.equals("")) {
 		    		where += " OR ";
 		    	}
-		    	where += specName + "='" + spec + "'";
+		    	where += specName + "='" + specReq.get(i) + "'";
 		    }
 	    }
 	    if (!where.equals("")) {
@@ -64,11 +66,19 @@ public class Cars extends HttpServlet {
 				);
 		 
 				while (results.next()) {
-					List<Object> specs = new ArrayList<Object>();
-					for (int i = 0; i < specNames.size() - 1; i++) {
-						specs.add(i, results.getObject(i + 1));
+					List<String> specs = new ArrayList<String>();
+					int specMatch = 0;
+					
+					for (int i = 0; i < headers.size() - 1; i++) {
+						String spec = results.getString(i + 1);
+						specs.add(i, spec);
+
+						if (spec != null && !spec.equals("") && spec.equalsIgnoreCase(specReq.get(i))) {
+							specMatch = specMatch + 1;
+						}
 					}
 					
+					specs.add(headers.size() - 1, Integer.toString(specMatch));
 					cars.add(new Car(specs));
 				}
 
@@ -77,8 +87,8 @@ public class Cars extends HttpServlet {
 				e.printStackTrace();
 			}
 	    }
-	    
-		request.setAttribute("specNames", specNames);
+
+		request.setAttribute("headers", headers);
 		request.setAttribute("cars", cars);
 	}
 	
