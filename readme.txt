@@ -6,9 +6,9 @@ a crowdsourced wiki database
 sort by number of matches
 use previous entry for default values 
 clear input fields of any values
+sort numeric values in order
  
 TODO:
-sort numeric values in order
 new/add op searches first
 add rank field, like buttons for each row
 

@@ -68,17 +68,22 @@ function sort(n) {
 		
 		for (i = 1; i < (rows.length - 2); i++) {
 			shouldSwitch = false;
-			x = rows[i].getElementsByTagName("td")[n];
-			y = rows[i + 1].getElementsByTagName("td")[n];
+			x = rows[i].getElementsByTagName("td")[n].firstElementChild.innerHTML.toLowerCase();
+			y = rows[i + 1].getElementsByTagName("td")[n].firstElementChild.innerHTML.toLowerCase();
+			
+			if (!isNaN(x) && !isNaN(y)) {
+				x = parseFloat(x);
+				y = parseFloat(y);
+			} 
 			
 			if (dir == "asc") {
-				if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-					shouldSwitch= true;
+				if (x > y) {
+					shouldSwitch = true;
 					break;
 				}
 			} else if (dir == "desc") {
-				if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-					shouldSwitch= true;
+				if (x < y) {
+					shouldSwitch = true;
 					break;
 				}
 			}
