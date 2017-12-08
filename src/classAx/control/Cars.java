@@ -18,6 +18,9 @@ import classAx.model.*;
 public class Cars extends HttpServlet {
     private static final long serialVersionUID = 2L; 
 
+    public static final int MATCHES_COL = 1;
+    public static final int RANK_COL = 1;
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {            
 		List<String> headers = new ArrayList<String>();
 	    List<String> specReq = new ArrayList<String>();
@@ -52,11 +55,13 @@ public class Cars extends HttpServlet {
 				    System.out.println(request.getParameter(headers.get(i)));
 				    
 				    String spec = request.getParameter(headers.get(i));
-//			    	if (spec == null) {
-//			    		spec = "";
-//			    	}
+			    	if (spec.equals("")) {
+			    		spec = "NULL";
+			    	} else {
+			    		spec = String.format("'%s'", spec);
+			    	}
 				    
-				    specs += "'" + spec + "'";
+				    specs += spec;
 			    }
 
 				System.out.println(specs);

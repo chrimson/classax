@@ -2,17 +2,23 @@ ClassAx
 Chris Limson
 a crowdsourced wiki database
 
+2017-12-08
+add null numeric values
+
+TODO:
+new/add op searches first
+add rank field, like buttons for each row. declare constants for additional columns
+fix clear to include reset
+comment
+XML config
+SQL script
+
 2017-12-07
 sort by number of matches
 use previous entry for default values 
 clear input fields of any values
 sort numeric values in order
 add/new to table
-
-TODO:
-add null numeric values
-new/add op searches first
-add rank field, like buttons for each row
 
 2017-12-06
 modify default first page to show blank
