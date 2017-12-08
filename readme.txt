@@ -3,11 +3,13 @@ Chris Limson
 a crowdsourced wiki database
 
 2017-12-08
+enable buttons only when valid
 don't log out just with home link
 fix clear to include reset
 add null numeric values
 
 TODO:
+merged parent header
 add rank field, like buttons for each row. declare constants for additional columns
 comment
 XML config

@@ -27,7 +27,7 @@
 			<c:forEach begin="0" end="${fn:length(headers) - 2}" var="specIndex">
 			<td class="search">
 				<span>
-				<input name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}"/>
+				<input name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}" onkeypress="checkFields(event)"/>
 				</span>
 			</td>
 			</c:forEach>
@@ -38,15 +38,15 @@
 	<p />
 
 	<div style="text-align:center">
-		<input type="submit" name="op" value="Search"/>
-		<input type="button" onclick="clearFields()" value="Clear" />
+		<input id="search" type="submit" name="op" value="Search"/>
+		<input id="clear" type="button" onclick="clearFields()" value="Clear" />
 		<c:if test="${not empty param.username}">
 			<c:choose>
 				<c:when test="${op == 'Add'}">
-					<input type="submit" name="op" value="Confirm"/>
+					<input id="confirm" type="submit" name="op" value="Confirm"/>
 				</c:when>
 				<c:otherwise>
-					<input type="submit" name="op" value="Add"/>
+					<input id="add" type="submit" name="op" value="Add"/>
 				</c:otherwise>
 			</c:choose>
 		</c:if>
@@ -57,6 +57,7 @@
 var specs = '${fn:length(headers) - 1}';
 sort(specs);
 maximizeFields();
+initFields();
 
 function sort(n) {
 	var table, rows, switching=true, i, x, y, shouldSwitch=false, dir="desc", switchcount=0;
@@ -139,5 +140,50 @@ function clearFields() {
 	}
 	
 	document.getElementById("table").reset();
+	initFields();
+}
+
+function checkFields(event) {
+	var empty = true, i, all = "", key = event.which;
+	search = document.getElementsByClassName("search");
+	
+	if (key > 31 && key < 127) {
+		empty = false;
+	} else {
+		for (i = 0; i < search.length; i++) {
+			all += search[i].firstElementChild.firstElementChild.value;
+		}
+		
+		if (all.length > 1) {
+			empty = false;
+		}
+	}
+	
+	setFields(empty);
+}
+
+function initFields() {
+	var search, i, empty = true;
+	search = document.getElementsByClassName("search");
+
+	for (i = 0; i < search.length; i++) {
+		if (search[i].firstElementChild.firstElementChild.value != "") {
+			empty = false;
+		}
+	}
+
+	setFields(empty);
+}
+
+function setFields(empty) {
+	document.getElementById("search").disabled = empty;
+	document.getElementById("clear").disabled = empty;
+
+	if (document.getElementById("confirm") != null) {
+		document.getElementById("confirm").disabled = empty;
+	}
+	if (document.getElementById("add") != null) {
+		document.getElementById("add").disabled = empty;
+	}
 }
 </script>
