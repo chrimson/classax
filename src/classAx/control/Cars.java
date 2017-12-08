@@ -52,8 +52,6 @@ public class Cars extends HttpServlet {
 			    		specs += ",";
 			    	}
 				    
-				    System.out.println(request.getParameter(headers.get(i)));
-				    
 				    String spec = request.getParameter(headers.get(i));
 			    	if (spec.equals("")) {
 			    		spec = "NULL";

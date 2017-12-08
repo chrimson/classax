@@ -3,7 +3,7 @@
  
 <jsp:include page="/listcars" />
 
-<form action="Table" method="POST">
+<form id="table" action="Table" method="POST">
 	<table id="cars">
 		<tr>
 			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
@@ -134,9 +134,10 @@ function maximizeFields() {
 function clearFields() {
 	var search, i;
 	search = document.getElementsByClassName("search");
-
 	for (i = 0; i < search.length; i++) {
 		search[i].firstElementChild.firstElementChild.setAttribute("value", "");
 	}
+	
+	document.getElementById("table").reset();
 }
 </script>
