@@ -2,19 +2,30 @@ ClassAx
 Chris Limson
 a crowdsourced wiki database
 
+
+mysql> create database ClassAx
+mysql> use ClassAx;
+mysql> source ClassAx.sql;
+
+
+shell> mysqldump -u root -p ClassAx > ClassAx.sql
+
+
 2017-12-08
 enable buttons only when valid
 don't log out just with home link
 fix clear to include reset
 add null numeric values
+MySQL import/export notes, SQL database
 
 TODO:
+login keep state
 merged parent header
 add rank field, like buttons for each row. declare constants for additional columns
 comment
 XML config
-SQL script
 fix definite security hole in home link. use token
+must fix Table redundancy, blank welcome table
 
 2017-12-07
 new/add op searches first
@@ -33,7 +44,6 @@ un/collapse table
 input box widths column widths
 search SQL database
 fix login
-must fix Table redundancy, blank welcome table
 
 2017-11-30
 MySQL Table of serialized objects
