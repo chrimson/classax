@@ -4,7 +4,7 @@
 	Error
 </c:if>
 
-<c:if test="${empty username}">
+<c:if test="${empty param.username}">
 	<form action="Login" method="POST">
 		Username <input type="text" name="username"/><br/>
 		Password <input type="password" name="password"/><br/>
@@ -12,9 +12,9 @@
 	</form>
 </c:if>
 
-<c:if test="${not empty username}">
+<c:if test="${not empty param.username}">
 	<form action="Login" method="POST">
-		${username} logged in<br/>
+		${param.username} logged in<br/>
 		<input type="submit" name="user" value="Logout"/>
 	</form>
 </c:if>

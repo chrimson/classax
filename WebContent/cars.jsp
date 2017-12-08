@@ -34,13 +34,13 @@
 		</tr>
 	</table>
 
-	<input type="hidden" name="username" value="${username}"/>
+	<input type="hidden" name="username" value="${param.username}"/>
 	<p />
 
 	<div style="text-align:center">
 		<input type="submit" name="op" value="Search"/>
 		<input type="button" onclick="clearFields()" value="Clear" />
-		<c:if test="${not empty username}">
+		<c:if test="${not empty param.username}">
 			<c:choose>
 				<c:when test="${op == 'Add'}">
 					<input type="submit" name="op" value="Confirm"/>

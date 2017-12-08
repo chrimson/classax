@@ -9,7 +9,7 @@
 		<title>ClassAx</title>
 	</head>
 	<body>
-		<a href="/ClassAx">ClassAx</a>
+		<a href="/ClassAx/index.jsp?username=${param.username}">ClassAx</a>
 		
 		<p />
 	

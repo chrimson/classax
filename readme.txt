@@ -3,14 +3,16 @@ Chris Limson
 a crowdsourced wiki database
 
 2017-12-08
-add null numeric values
+don't log out just with home link
 fix clear to include reset
+add null numeric values
 
 TODO:
 add rank field, like buttons for each row. declare constants for additional columns
 comment
 XML config
 SQL script
+fix definite security hole in home link. use token
 
 2017-12-07
 new/add op searches first
