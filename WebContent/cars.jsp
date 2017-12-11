@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
- 
+
+<%--
+	Include reference in web.xml to Cars.java DAO
+--%>
 <jsp:include page="/listcars" />
 
 <form id="table" action="Table" method="POST">
@@ -64,6 +67,10 @@ function sort(n) {
 	table = document.getElementById("cars");
 	
 	while (switching) {
+		<%--
+		Test if JSP comment can be
+		in JavaScript
+		--%>
 		switching = false;
 		rows = table.getElementsByTagName("tr");
 		

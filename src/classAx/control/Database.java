@@ -3,6 +3,10 @@ package classAx.control;
 import java.sql.*;
 import com.mysql.jdbc.Driver;
 
+/*
+ * 	The SQL connection
+ */
+
 public class Database {
 	public Connection sql;
 	
