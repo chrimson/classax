@@ -75,7 +75,15 @@ function sort(n) {
 			if (!isNaN(x) && !isNaN(y)) {
 				x = parseFloat(x);
 				y = parseFloat(y);
-			} 
+				
+				if (isNaN(x)) {
+					x = 0;
+				}
+
+				if (isNaN(y)) {
+					y = 0;
+				}
+			}
 			
 			if (dir == "asc") {
 				if (x > y) {

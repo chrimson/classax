@@ -3,13 +3,16 @@ Chris Limson
 a crowdsourced wiki database
 
 
-mysql> create database ClassAx
+mysql> create database ClassAx;
 mysql> use ClassAx;
 mysql> source ClassAx.sql;
 
 
 shell> mysqldump -u root -p ClassAx > ClassAx.sql
 
+
+2017-12-11
+fix null value comparison to numbers
 
 2017-12-08
 enable buttons only when valid
