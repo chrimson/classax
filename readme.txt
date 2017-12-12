@@ -3,6 +3,18 @@ Chris Limson
 a crowdsourced wiki database
 
 
+Environment:
+CentOS 7 x64
+Firefox 52.4.0 x64
+Eclipse JEE Kepler
+JDK 1.8.0 152
+apache-tomcat-7.0.82
+mysql-5.5.58-linux-glibc2.12-x86_64
+jstl-1.2.jar
+mysql-connector-java-5.1.44-bin.jar
+
+
+MySQL:
 mysql> create database ClassAx;
 mysql> use ClassAx;
 mysql> source ClassAx.sql;
@@ -11,7 +23,21 @@ mysql> source ClassAx.sql;
 shell> mysqldump -u root -p ClassAx > ClassAx.sql
 
 
+Log:
+2017-12-12
+comment
+
+TODO:
+check entry if must be number
+login keep state
+merged parent header
+add rank field, like buttons for each row. declare constants for additional columns
+XML config
+fix definite security hole in home link. use token
+must fix Table redundancy, blank welcome table
+
 2017-12-11
+comment
 fix null value comparison to numbers
 
 2017-12-08
@@ -20,15 +46,6 @@ don't log out just with home link
 fix clear to include reset
 add null numeric values
 MySQL import/export notes, SQL database
-
-TODO:
-login keep state
-merged parent header
-add rank field, like buttons for each row. declare constants for additional columns
-comment
-XML config
-fix definite security hole in home link. use token
-must fix Table redundancy, blank welcome table
 
 2017-12-07
 new/add op searches first
@@ -60,9 +77,12 @@ JSTL include pages
 2017-11-28
 Eclipse Dynamic Web Project
 
+MySQL
+
 Users
 Username
 Password
 
 Cars
 Specs
+

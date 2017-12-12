@@ -22,6 +22,9 @@
 
 		<p />
 
+		<%--
+			Shows the table of cars
+		--%>
 		<jsp:include page="cars.jsp" />
 	</body>
 </html>
