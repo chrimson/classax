@@ -9,12 +9,7 @@
 		<title>ClassAx</title>
 	</head>
 	<body>
-		<%--
-			An existing username indicates who is currently logged in,
-			so clicking the link does not log one out - Is a security
-			hole that MUST BE FIXED
-		--%>
-		<a href="/ClassAx/index.jsp?username=${param.username}">ClassAx</a>
+		<a href="/ClassAx">ClassAx</a>
 		
 		<p />
 	

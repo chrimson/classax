@@ -40,16 +40,12 @@
 			<c:forEach begin="0" end="${fn:length(headers) - 2}" var="specIndex">
 			<td class="search">
 				<span>
-				<input name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}" onkeypress="checkFields(event)"/>
+				<input class="nb" name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}" onkeypress="checkFields(event)"/>
 				</span>
 			</td>
 			</c:forEach>
 		</tr>
 	</table>
-
-	<%-- Indicate state that User logged in --%>
-	<input type="hidden" name="username" value="${param.username}"/>
-	<p />
 
 	<%-- Operational input submit buttons --%>
 	<div style="text-align:center">
@@ -57,7 +53,7 @@
 		<input id="clear" type="button" onclick="clearFields()" value="Clear" />
 
 		<%-- Only show editing operational buttons if logged in --%>
-		<c:if test="${not empty param.username}">
+		<c:if test="${not empty sessionScope.loggedIn}">
 			<c:choose>
 				<c:when test="${op == 'Add'}">
 					<input id="confirm" type="submit" name="op" value="Confirm"/>

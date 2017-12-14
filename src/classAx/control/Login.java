@@ -16,6 +16,8 @@ public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		
 		if (request.getParameter("op").equals("Login")) {
 			// The operation chosen is to login, given by the input submit button
 			try {
@@ -32,27 +34,28 @@ public class Login extends HttpServlet {
 
 				ResultSet result = query.executeQuery();
 				if (result.next()) {
-					// If he exists, set him to the username attribute
-					request.setAttribute("username", result.getString("Username"));
+					// If he exists, set username to session loggedIn attribute
+					session.setAttribute("loggedIn", result.getString("Username"));
 				}
 				else
 				{
-					// Fail, set the error attribute
-					request.setAttribute("error", true);
+					// Fail, set the session Login Fail attribute
+					session.setAttribute("loginFail", true);
 				}
 				db.close();
 				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			} catch (Exception e) { }
 		} else {
-			// The operation is to logout, so clear the username and error state
-			request.setAttribute("username", null);
-			request.setAttribute("error", null);
+			// The operation is to logout, so clear the session state
+				session.invalidate();
 		}
 		
 		// Forward the request with the relevant attributes to the index.jsp dispatcher
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
+	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 }

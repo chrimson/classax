@@ -8,6 +8,10 @@ table {
     border-collapse: collapse;
 }
 
+.nb {
+	border: none;
+}
+
 td {
     cursor: pointer;
 }
