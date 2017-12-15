@@ -24,6 +24,9 @@ shell> mysqldump -u root -p ClassAx > ClassAx.sql
 
 
 Log:
+2017-02-15
+Table redundancy, Headers control instead
+
 2017-02-14
 use HTTP sessions to manage user login state
 
@@ -32,7 +35,6 @@ check entry if must be number
 merged parent header
 add rank field, like buttons for each row. declare constants for additional columns
 XML config
-must fix Table redundancy, blank welcome table
 
 2017-12-12
 comment

@@ -4,13 +4,13 @@
 <%--
 	Include reference in web.xml to Cars.java Data Access Object
 --%>
-<jsp:include page="/listcars" />
+<jsp:include page="/headers" />
 
 <%--
 	The form action is Table.java, a launcher for the index.jsp
 	with set form parameters for the specifications
 --%>
-<form id="table" action="Table" method="POST">
+<form id="table" action="Cars" method="POST">
 	<table id="cars">
 		<%-- Headers --%>
 		<tr>
@@ -25,7 +25,7 @@
 		<%-- Listings found --%>
 		<c:forEach var="car" items="${cars}">
 		<tr>
-			<%-- Iterate over item index to simplify collsapsing --%>
+			<%-- Iterate over item index to simplify collapsing --%> 
 			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
 			<td onclick="collapsible(${index})">
 				<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
@@ -36,7 +36,7 @@
 	
 		<%-- Search/Add input fields --%>
 		<tr>
-			<%-- Iterate over item index to exlude Matches column --%>
+			<%-- Iterate over item index to exclude Matches column --%>
 			<c:forEach begin="0" end="${fn:length(headers) - 2}" var="specIndex">
 			<td class="search">
 				<span>
