@@ -20,6 +20,7 @@
 				<span><c:out value="${headers[index]}"/></span>
 			</td>
 			</c:forEach>
+			<td></td>
 		</tr>
 
 		<%-- Listings found --%>
@@ -31,6 +32,7 @@
 				<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
 			</td>
 			</c:forEach>
+			<td class="rate"><input type="button" name="plus" value="+"/></td>
 		</tr>
 		</c:forEach>
 	
@@ -44,6 +46,7 @@
 				</span>
 			</td>
 			</c:forEach>
+			<td></td>
 		</tr>
 	</table>
 

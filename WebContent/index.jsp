@@ -9,17 +9,11 @@
 		<title>ClassAx</title>
 	</head>
 	<body>
-		<a href="/ClassAx">ClassAx</a>
-		
-		<p />
+		<a href="/ClassAx">ClassAx</a><p />
 	
-		<jsp:include page="login.jsp" />
+		<jsp:include page="login.jsp" /><p />
 
-		<p />
-
-		<%--
-			Shows the table of cars
-		--%>
+		<%-- Shows the table of cars --%>
 		<jsp:include page="cars.jsp" />
 	</body>
 </html>

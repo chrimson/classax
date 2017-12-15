@@ -28,6 +28,7 @@ Log:
 Table redundancy, Headers control instead
 add ID to table, hide its display
 add Rating to table, remove its text input field
+add Rating control to each row
 
 2017-02-14
 use HTTP sessions to manage user login state
