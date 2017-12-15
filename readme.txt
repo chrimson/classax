@@ -26,7 +26,8 @@ shell> mysqldump -u root -p ClassAx > ClassAx.sql
 Log:
 2017-02-15
 Table redundancy, Headers control instead
-Add ID to table, hide its display
+add ID to table, hide its display
+add Rating to table, remove its text input field
 
 2017-02-14
 use HTTP sessions to manage user login state

@@ -12,7 +12,6 @@
 --%>
 <form id="table" action="Cars" method="POST">
 	<table id="cars">
-		<%-- 	display: none; --%>	
 		<%-- Headers --%>
 		<tr>
 			<%-- Iterate over item index to simplify sorting --%>
@@ -41,7 +40,7 @@
 			<c:forEach begin="0" end="${fn:length(headers) - 2}" var="specIndex">
 			<td class="search">
 				<span>
-				<input class="nb" name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}" onkeypress="checkFields(event)"/>
+				<input class="nb" name="${headers[specIndex]}" type="text" style="width:40px" value="${specReq[specIndex]}"  onkeypress="checkFields(event)"/>
 				</span>
 			</td>
 			</c:forEach>
@@ -71,8 +70,12 @@
 <script type="text/javascript">
 
 <%-- Sort Matches column descending by default--%>
-var specs = '${fn:length(headers) - 1}';
-sort(specs);
+var matches = '${fn:length(headers) - 1}';
+sort(matches);
+
+<%-- Select cell with meaningless rating input --%>
+var rating = '${fn:length(headers) - 2}';
+hide(rating);
 
 <%-- Stretch fields cosmetically to occupy cells --%>
 maximizeFields();
@@ -82,6 +85,12 @@ maximizeFields();
 	values and reflect properly with operational buttons
 --%>
 initFields();
+
+
+<%-- Hide rating edit field --%>
+function hide(n) {
+	document.getElementsByClassName("search")[n].firstElementChild.style.display = "none";
+}
 
 <%-- Toggle ascending/descending sort of the nth particular column's specifications --%>
 function sort(n) {
