@@ -20,7 +20,6 @@
 				<span><c:out value="${headers[index]}"/></span>
 			</td>
 			</c:forEach>
-			<td></td>
 		</tr>
 
 		<%-- Listings found --%>
@@ -29,10 +28,14 @@
 			<%-- Iterate over item index to simplify collapsing --%> 
 			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
 			<td onclick="collapsible(${index})" class="car">
-				<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
+				<span style="white-space:nowrap">
+					<c:if test="${index == fn:length(headers) - 2}">
+						<input type="button" name="plus" value="+" onclick=""/>
+					</c:if>
+					<c:out value="${car.specs[index]}"/>
+				</span>
 			</td>
 			</c:forEach>
-			<td class="rate"><input type="button" name="plus" value="+"/></td>
 		</tr>
 		</c:forEach>
 	
@@ -46,7 +49,6 @@
 				</span>
 			</td>
 			</c:forEach>
-			<td></td>
 		</tr>
 	</table>
 
