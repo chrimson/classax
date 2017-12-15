@@ -17,6 +17,10 @@ table {
 	border: none;
 }
 
+td.header:first-of-type, td.car:first-of-type, td.search:first-of-type {
+	display: none;
+}
+
 td {
     cursor: pointer;
 }

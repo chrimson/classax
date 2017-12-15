@@ -12,6 +12,7 @@
 --%>
 <form id="table" action="Cars" method="POST">
 	<table id="cars">
+		<%-- 	display: none; --%>	
 		<%-- Headers --%>
 		<tr>
 			<%-- Iterate over item index to simplify sorting --%>
@@ -27,7 +28,7 @@
 		<tr>
 			<%-- Iterate over item index to simplify collapsing --%> 
 			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
-			<td onclick="collapsible(${index})">
+			<td onclick="collapsible(${index})" class="car">
 				<span style="white-space:nowrap"><c:out value="${car.specs[index]}"/></span>
 			</td>
 			</c:forEach>
@@ -81,7 +82,6 @@ maximizeFields();
 	values and reflect properly with operational buttons
 --%>
 initFields();
-
 
 <%-- Toggle ascending/descending sort of the nth particular column's specifications --%>
 function sort(n) {
