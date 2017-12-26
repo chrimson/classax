@@ -24,20 +24,23 @@ shell> mysqldump -u root -p ClassAx > ClassAx.sql
 
 
 Log:
-2017-02-15
+2017-12-26
+utilize properties file, for database info
+
+TODO:
+borders select collapsing
+check entry if must be number
+merged parent header
+add rank field, like buttons for each row. declare constants for additional columns
+
+2017-12-15
 Table redundancy, Headers control instead
 add ID to table, hide its display
 add Rating to table, remove its text input field
 add Rating control to each row
 
-2017-02-14
+2017-12-14
 use HTTP sessions to manage user login state
-
-TODO:
-check entry if must be number
-merged parent header
-add rank field, like buttons for each row. declare constants for additional columns
-XML config
 
 2017-12-12
 comment

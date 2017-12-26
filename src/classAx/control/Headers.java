@@ -8,8 +8,6 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
-import classAx.model.*;
-
 /*
  * The Headers DAO
  */
@@ -29,7 +27,7 @@ public class Headers extends HttpServlet {
 	    // Always determine the SQL table structure, make headers aggregate
 	    try {
 			// Call the Database.java helper class for a SQL connection
-			Database db = new Database();
+			Database db = new Database(getServletContext());
 			Statement query = db.sql.createStatement();
 			ResultSet results = query.executeQuery(
 					"DESCRIBE Cars"

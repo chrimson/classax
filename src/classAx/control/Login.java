@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
 			// The operation chosen is to login, given by the input submit button
 			try {
 				// Call the Database.java helper class for a SQL connection
-				Database db = new Database();
+				Database db = new Database(getServletContext());
 				// Find the User with matching credentials
 				PreparedStatement query = db.sql.prepareStatement(
 						"SELECT * " + 

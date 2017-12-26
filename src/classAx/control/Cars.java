@@ -62,7 +62,7 @@ public class Cars extends HttpServlet {
 		    // Run the Insert statement for the new Row of values
 			try {
 				// Call the Database.java helper class for a SQL connection
-				Database db = new Database();
+				Database db = new Database(getServletContext());
 				Statement update = db.sql.createStatement();
 				update.executeUpdate(
 					"INSERT INTO Cars " +
@@ -104,7 +104,7 @@ public class Cars extends HttpServlet {
 	    	where = "WHERE " + where;
 		    try {
 				// Call the Database.java helper class for a SQL connection
-				Database db = new Database();
+				Database db = new Database(getServletContext());
 				Statement query = db.sql.createStatement();
 				ResultSet results = query.executeQuery(
 						"SELECT * " +
