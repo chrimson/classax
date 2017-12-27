@@ -24,14 +24,16 @@ shell> mysqldump -u root -p ClassAx > ClassAx.sql
 
 
 Log:
-2017-12-26
-utilize properties file, for database info
+2017-12-27
+borders select collapsing
 
 TODO:
-borders select collapsing
+operate rank button
 check entry if must be number
 merged parent header
-add rank field, like buttons for each row. declare constants for additional columns
+
+2017-12-26
+utilize properties file, for database info
 
 2017-12-15
 Table redundancy, Headers control instead

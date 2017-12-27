@@ -27,10 +27,13 @@
 		<tr>
 			<%-- Iterate over item index to simplify collapsing --%> 
 			<c:forEach begin="0" end="${fn:length(headers) - 1}" var="index">
-			<td onclick="collapsible(${index})" class="car">
+			<td onmousemove="changeCursor(event)" onclick="collapsible(${index},event)" class="car">
 				<span style="white-space:nowrap">
 					<c:if test="${index == fn:length(headers) - 2}">
-						<input type="button" name="plus" value="+" onclick=""/>
+						<input type="button" id="id_${car.specs[0]}" value="+"
+							onclick="return false;"
+							onmousedown="rightClick(event)"
+							oncontextmenu="return false;"/>
 					</c:if>
 					<c:out value="${car.specs[index]}"/>
 				</span>
@@ -155,25 +158,44 @@ function sort(n) {
 }
 
 <%-- Toggle un/collapse of column for readibility--%>
-function collapsible(n) {
+function collapsible(n, e) {
 	var table, rows, i, cell, content;
-	table = document.getElementById("cars");
-	rows = table.getElementsByTagName("tr");
-
-	for (i = 0; i < rows.length; i++) {
-		cell = rows[i].getElementsByTagName("td")[n];
-		content = cell.firstElementChild;
-		
-		if (cell.style.maxWidth == "10px") {
-			content.style.visibility = "visible";
-
-			<%-- More than wide enough --%>
-			cell.style.maxWidth = "200px";
-		} else {
-			content.style.visibility = "collapse";
-			cell.style.maxWidth = "10px";
+	
+	if (e.currentTarget.style.cursor == "col-resize") {
+		table = document.getElementById("cars");
+		rows = table.getElementsByTagName("tr");
+	
+		for (i = 0; i < rows.length; i++) {
+			cell = rows[i].getElementsByTagName("td")[n];
+			content = cell.firstElementChild;
+			
+			if (cell.style.maxWidth == "10px") {
+				content.style.visibility = "visible";
+	
+				<%-- More than wide enough --%>
+				cell.style.maxWidth = "200px";
+			} else {
+				content.style.visibility = "collapse";
+				cell.style.maxWidth = "10px";
+			}
 		}
 	}
+}
+
+function changeCursor(e) {
+	if (e.clientX - e.currentTarget.offsetLeft < 12) {
+		e.currentTarget.style.cursor = "col-resize";
+	} else {
+		e.currentTarget.style.cursor = "default";
+	}
+}
+
+<%-- Detect right click of rating control button --%>
+function rightClick(e) {
+	if (e.which == 3) {
+		console.log(e.target.id);
+	}
+	return false;
 }
 
 <%-- Stretch fields cosmetically to occupy cells --%>
